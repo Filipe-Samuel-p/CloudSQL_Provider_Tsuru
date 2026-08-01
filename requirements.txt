@@ -1,5 +1,5 @@
 
-fastapi
+fastapi[standard]
 uvicorn[standard]
 pydantic
 pydantic-settings
@@ -7,4 +7,3 @@ python-dotenv
 python-multipart
 
 
-google-cloud-sql-admin
