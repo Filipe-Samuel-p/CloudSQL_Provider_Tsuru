@@ -12,4 +12,8 @@ resource "google_project_iam_member" "cloudsql_admin_permission" {
   member     = "serviceAccount:${google_service_account.sa_cloudsql.email}"
 }
 
+resource "google_service_account_key" "sa_cloudsql_key" {
+  service_account_id = google_service_account.sa_cloudsql.name
+}
+
 
