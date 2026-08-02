@@ -8,8 +8,8 @@ def new_instance(data: InstanceRequest):
     try:
 
         database_instance = {
-            "name": data.instance_name,
-            "region": data.region,
+            "name": data.name,
+            "region": "us-central1",
             "databaseVersion":"MYSQL_8_0",
             "settings":{
                 "tier": data.plan,
@@ -19,6 +19,11 @@ def new_instance(data: InstanceRequest):
                 "availabilityType": "ZONAL",
                 "ipConfiguration": {
                     "ipv4Enabled": True
+                },
+
+                "userLabels":{
+                    "instance_name": data.name,
+                    "team": data.team
                 }
             }
         }

@@ -2,9 +2,10 @@
 from pydantic import BaseModel
 
 class InstanceRequest(BaseModel):
-    region: str
     plan: str
-    instance_name: str
+    name: str
+    team: str
+    user: str
 
 
 class InstanceResponse(BaseModel):
