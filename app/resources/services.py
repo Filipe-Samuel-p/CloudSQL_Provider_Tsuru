@@ -14,7 +14,7 @@ def new_instance(data: InstanceRequest):
             "settings":{
                 "tier": data.plan,
                 "dataDiskSizeGb": "10",
-                "dataDiskType": "PD_HDD",      # HD padrão (mais barato que PD_SSD)
+                "dataDiskType": "PD_HDD",      
                 "storageAutoResize": False,
                 "availabilityType": "ZONAL",
                 "ipConfiguration": {
