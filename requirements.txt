@@ -1,10 +1,14 @@
 
-fastapi
+fastapi[standard]
 uvicorn[standard]
 pydantic
 pydantic-settings
 python-dotenv
 python-multipart
 
+google-api-python-client==2.198.0
+google-auth==2.56.0
+cloud-sql-python-connector
+google-api-python-client-stubs
 
-google-cloud-sql-admin
+
