@@ -1,5 +1,6 @@
 from fastapi import FastAPI
-from app.resources.schemas import User
+from app.resources.routes import routers as personal_routes
+
 
 app = FastAPI()
 
@@ -7,3 +8,4 @@ app = FastAPI()
 async def health_check():
     return {"message": "Ok, funcionando"}
 
+app.include_router(router=personal_routes)
