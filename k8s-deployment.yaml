@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cloud-sql-provisioner
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cloud-sql-provisioner
+  template:
+    metadata:
+      labels:
+        app: cloud-sql-provisioner
+    spec:
+      serviceAccountName: cloud-sql-provisioner
+      containers:
+        - name: api
+          image: us-central1-docker.pkg.dev/treinamento-gcp-482202/cloud-sql-provisioner/api:v1
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - secretRef:
+                name: cloud-sql-provisioner-env
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: cloud-sql-provisioner
+spec:
+  type: LoadBalancer
+  selector:
+    app: cloud-sql-provisioner
+  ports:
+    - port: 80
+      targetPort: 8000
