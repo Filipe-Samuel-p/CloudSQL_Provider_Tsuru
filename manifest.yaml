@@ -1,0 +1,7 @@
+id: cloud-sql
+username: tsuru
+password: test123
+team: filipe-team
+endpoint:
+  production: http://35.253.175.186
+multi-cluster: false
