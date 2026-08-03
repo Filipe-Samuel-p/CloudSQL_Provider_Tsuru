@@ -1,11 +1,9 @@
-from google.oauth2 import service_account
-from constants import GCloud
+import google.auth
 from google.cloud.sql.connector import Connector
 from googleapiclient.discovery import build
 
-                                
 
-credential = service_account.Credentials.from_service_account_file(GCloud.google_credential_cloudsql)
+credential, _ = google.auth.default()
 
 def cloudsql_admin_client():
     client = build('sqladmin','v1', credentials=credential)
