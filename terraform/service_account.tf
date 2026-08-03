@@ -7,13 +7,8 @@ resource "google_service_account" "sa_cloudsql" {
 
 resource "google_project_iam_member" "cloudsql_admin_permission" {
   depends_on = [google_service_account.sa_cloudsql]
-  project    = "treinamento-gcp-482202"
+  project    = var.project_id
   role       = "roles/cloudsql.admin"
   member     = "serviceAccount:${google_service_account.sa_cloudsql.email}"
 }
-
-resource "google_service_account_key" "sa_cloudsql_key" {
-  service_account_id = google_service_account.sa_cloudsql.name
-}
-
 

@@ -4,9 +4,6 @@ from pydantic import Field
 class _EnvVars(BaseSettings):
     model_config = SettingsConfigDict(env_file='.env', env_file_encoding='utf-8')
 
-    google_credential_cloudsql: str = Field(
-        default='', alias='GOOGLE_CREDENTIAL_CLOUDSQL'
-    )
     google_project_id: str = Field(alias='PROJECT_ID')
 
     tsuru_username: str = Field(alias='TSURU_USERNAME')
@@ -19,5 +16,4 @@ class Credenditals:
     tsuru_password = _env_vars.tsuru_password
 
 class GCloud:
-    google_credential_cloudsql = _env_vars.google_credential_cloudsql
     google_project_id = _env_vars.google_project_id
